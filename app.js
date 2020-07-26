@@ -25,6 +25,12 @@ let app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 
+let ghpages = require('gh-pages');
+ghpages.publish('public', {
+  branch: "gh-pages",
+  repo: "https://github.com/IFraimG/myocean.github.io.git"
+}, function(){});
+
 io.on("connection", socket => {
   console.log("конэктыд")
   
